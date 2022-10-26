@@ -1,43 +1,38 @@
-import java.util.Scanner;
-class ad
+import java.util.*;
+class prime
 {
     public static boolean isprime(int n)
     {
-        if (n<2)
+        if(n==1)
         return false;
-        int count=0;
-        for(int i=2;i<=(int)Math.sqrt(n);i++)
+        for( int i=2; i<=(int)Math.sqrt(n); i++)
         {
-            if (n%i==0)
-            count++;
+            if(n%i==0)
+            return false;
         }
-        if (count==0)
         return true;
-        else
-        return false;
     }
     public static void main(String args[])
     {
-        int x[],n,sum=0,i,c=0;
-        float avg;
         Scanner sc=new Scanner(System.in);
+        int n,i,c=0,sum=0;
+        double avg;
         n=sc.nextInt();
-        x=new int[n];
-        
+        int x[]=new int[n];
         for(i=0; i<n; i++)
-        x[i]=sc.nextInt();
+        {
+            x[i]=sc.nextInt();
+        }
         for(i=0; i<n; i++)
         {
             if(isprime(x[i]))
             {
-                
                 sum=sum+x[i];
                 c++;
-                
             }
         }
-        avg=(float)sum/c;
+        avg=(double)sum/c;
         System.out.format("%.2f",avg);
-        
     }
+    
 }
